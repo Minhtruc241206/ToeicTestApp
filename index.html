@@ -1006,9 +1006,10 @@ Rules for EVERY question:
 1. The question must be a complete English sentence with a blank space represented by "______".
 2. The context of the sentence must reflect real TOEIC test scenarios (Business, Meetings, HR, Travel, Office, Customer Service).
 3. Provide exactly 4 options.
-4. ONLY ONE option must be the correct answer, and it MUST be one of the words provided in the user's list.
-5. The other 3 options MUST be distractors (words with similar meanings, similar spellings, or different word classes to create traps) AND they MUST NOT be from the user's list.
-6. Return the data as a JSON array matching the provided schema exactly.`;
+4. ALL 4 options (the correct answer and the 3 distractors) MUST be chosen strictly from the vocabulary list provided by the user. Do not use any words outside the provided list.
+5. The correct answer must logically fit the blank perfectly, while the other 3 words from the list act as distractors.
+6. Randomize the position of the correct answer among the 4 options so it is not always in the same place.
+7. Return the data as a JSON array matching the provided schema exactly.`;
 
             const userPrompt = `Here is my vocabulary list: \n${state.vocabList.join(', ')}\n\nCreate a TOEIC quiz covering these words. Limit to maximum 10 questions. Ensure high quality context.`;
 
